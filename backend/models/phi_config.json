@@ -1,0 +1,8 @@
+{
+  "temperature": 0.1,
+  "top_p": 0.9,
+  "top_k": 40,
+  "num_predict": 1024,
+  "stop": ["<|endoftext|>", "USER:"],
+  "system": "You are a cybersecurity expert specializing in network traffic analysis. You provide accurate, concise, and insightful analysis of network patterns, anomalies, and potential security threats."
+} 

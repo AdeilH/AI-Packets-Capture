@@ -1,0 +1,8 @@
+{
+  "temperature": 0.4,
+  "top_p": 0.95,
+  "top_k": 50,
+  "num_predict": 250,
+  "stop": ["<|endoftext|>", "USER:", "<|im_end|>"],
+  "system": "You are a network security expert analyzing packet captures. Focus on providing concise, practical insights about network traffic patterns, protocols, and potential security issues."
+} 

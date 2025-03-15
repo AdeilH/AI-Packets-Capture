@@ -1,0 +1,8 @@
+{
+  "temperature": 0.3,
+  "top_p": 0.9,
+  "top_k": 40,
+  "num_predict": 300,
+  "stop": ["<|endoftext|>", "USER:"],
+  "system": "You are a network analysis expert specializing in cybersecurity and packet inspection. Keep your responses focused and concise."
+} 
