@@ -15,7 +15,8 @@ const FileUploader: React.FC = () => {
   const { setAnalysisData, setIsLoading, setError, isLoading, error } = useAnalysis();
   const router = useRouter();
   
-  const handleFileUpload = async (event) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files) return;
     const file = event.target.files[0];
     if (!file) return;
     
@@ -31,8 +32,9 @@ const FileUploader: React.FC = () => {
       const data = await fetchAnalysisData(formData);
       setAnalysisData(data);
       router.push('/analysis');
-    } catch (err) {
-      setError(err.message || 'Failed to fetch analysis data');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch analysis data';
+      setError(errorMessage);
       console.error('Upload error:', err);
     } finally {
       setLocalLoading(false);
@@ -49,8 +51,9 @@ const FileUploader: React.FC = () => {
       const data = await fetchSampleAnalysis();
       setAnalysisData(data);
       router.push('/analysis');
-    } catch (err) {
-      setError('Failed to load demo analysis');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to load demo analysis';
+      setError(errorMessage);
       console.error('Demo error:', err);
     } finally {
       setLocalLoading(false);
